@@ -18,3 +18,12 @@ params, params_cov = scipy.optimize.curve_fit(fitting_functions.linear, d, f)
 slope = params[0]
 intercept = params[1]
 fitting_functions.print_equation(slope, intercept, "m","n")
+
+fig = plt.figure()
+plt.scatter(d, f, label='Data')
+plt.plot(d, fitting_functions.linear(d, slope, intercept),label='Linear Fit') 
+plt.legend(loc='best')
+plt.xlabel("displacement (dis)") #change the units as appropriate
+plt.ylabel("force (for)")  #change the units as appropriate
+plt.show()
+fig.savefit("dataplot.png")
